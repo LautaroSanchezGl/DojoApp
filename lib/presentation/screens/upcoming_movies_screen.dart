@@ -1,17 +1,15 @@
-import 'package:dojoapp/data/repository/movie_repository_imp.dart';
 import 'package:dojoapp/presentation/bloc/movies_bloc.dart';
 import 'package:dojoapp/presentation/widgets/movie_card.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/datasource/remote/api_service.dart';
 import '../../domain/entities/movie.dart';
 
 class UpcomingMoviesScreen extends StatefulWidget {
-  UpcomingMoviesScreen({super.key, required this.title});
+  const UpcomingMoviesScreen(
+      {super.key, required this.title, required this.moviesBloc});
 
   final String title;
-  final MoviesBloc moviesBloc =
-      MoviesBloc(movieRepository: const MovieRepositoryImp(ApiService()));
+  final MoviesBloc moviesBloc;
 
   @override
   State<UpcomingMoviesScreen> createState() => _UpcomingMoviesScreenState();
